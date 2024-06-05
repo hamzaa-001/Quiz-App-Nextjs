@@ -68,6 +68,10 @@ const QuizPage = () => {
             Question Number #{questionIndex + 1}
           </h1>
 
+          <p className="text-xl text-white">
+            Your score is: {score} / {questions.length}
+          </p>
+
           <div className="w-[65%] h-[350px] p-10 flex flex-col justify-center items-center bg-white rounded-2xl">
             <div className="w-[100%]">
               <h3 className="text-center text-3xl font-bold">
@@ -111,6 +115,17 @@ const QuizPage = () => {
           <p className="text-3xl">
             Your score is: {score} / {questions.length}
           </p>
+          <div className="mt-6 text-4xl">
+            {score / questions.length >= 0.5 ? (
+              <span role="img" aria-label="smile emoji">
+                😊
+              </span>
+            ) : (
+              <span role="img" aria-label="crying emoji">
+                😢
+              </span>
+            )}
+          </div>
           <Button className="mt-10 w-full" onClick={() => router.push("/")}>
             Go to Home
           </Button>
