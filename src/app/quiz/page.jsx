@@ -39,8 +39,6 @@ const QuizPage = () => {
         return e;
       });
 
-      console.log("🚀 ~ shuffledResult ~ shuffledResult:", shuffledResult);
-
       setQuestions([...shuffledResult]);
       setIsLoading(false);
       dispatch(resetScore());
@@ -68,7 +66,7 @@ const QuizPage = () => {
         <div className="text-4xl text-white">Loading...</div>
       ) : questionIndex < questions.length ? (
         <>
-          <h1 className="text-6xl font-bold text-white">
+          <h1 className="lg:text-6xl text-3xl font-bold text-white ">
             Question Number #{questionIndex + 1}
           </h1>
 
@@ -76,20 +74,20 @@ const QuizPage = () => {
             Your score is: {score} / {questions.length}
           </p>
 
-          <div className="w-[65%] h-[350px] p-10 flex flex-col justify-center items-center bg-white rounded-2xl">
+          <div className="lg:w-[65%] w-full min-h-[350px] p-10 flex flex-col justify-center items-center bg-white rounded-2xl">
             <div className="w-[100%]">
-              <h3 className="text-center text-3xl font-bold">
+              <h3 className="text-center lg:text-3xl text-lg font-bold">
                 {questions.length && questions[questionIndex].question}
               </h3>
             </div>
 
-            <div className="w-[100%] grid grid-cols-2 gap-x-10">
+            <div className="w-[100%] grid lg:grid-cols-2 grid-cols-1 lg:gap-x-10 gap-y-2">
               {questions.length &&
                 questions[questionIndex].answers?.map((ans, index) => (
                   <Button
                     key={index}
                     variant="outline"
-                    className={`mt-10 w-full ${
+                    className={`lg:mt-10 mt-2 w-full ${
                       hasAnswered
                         ? ans === questions[questionIndex].correct_answer
                           ? "border-2 border-green-500"

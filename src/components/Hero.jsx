@@ -34,7 +34,7 @@ const Hero = () => {
     <div className="w-full h-[100vh] bg-slate-950 flex flex-col justify-center items-center gap-10">
       <h1 className="text-6xl font-bold text-white">Quiz App</h1>
 
-      <div className="w-[65%] h-[300px] p-10 flex flex-col justify-center items-center bg-white rounded-2xl">
+      <div className="lg:w-[65%] w-full min-h-[300px] p-10 flex flex-col justify-center items-center bg-white rounded-2xl">
         <div className="w-[100%]">
           <form>
             <label

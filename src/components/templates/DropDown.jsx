@@ -64,9 +64,9 @@ const DropDown = () => {
   };
 
   return (
-    <div className="flex gap-20">
+    <div className="flex lg:gap-20 gap-10 lg:flex-row flex-col">
       <DropdownMenu>
-        <DropdownMenuTrigger className="text-black hover:bg-slate-900 hover:text-white shadow-lg px-5 py-2 rounded-lg transition-all border-2 border-black focus:border-2 focus:border-black">
+        <DropdownMenuTrigger className="text-black hover:bg-slate-900 hover:text-white shadow-lg px-5 py-2 rounded-lg transition-all border-2 border-gray-300 focus:border-2 focus:border-black text-sm ">
           {categoryFromSlice && categoryFromSlice.name
             ? `${categoryFromSlice.name}`
             : "SELECT CATEGORY"}
@@ -90,7 +90,7 @@ const DropDown = () => {
       </DropdownMenu>
 
       <DropdownMenu>
-        <DropdownMenuTrigger className="text-black hover:bg-slate-900 hover:text-white shadow-lg px-5 py-3 rounded-lg transition-all border-2 border-black focus:border-2 focus:border-black">
+        <DropdownMenuTrigger className="text-black hover:bg-slate-900 hover:text-white shadow-lg px-5 py-3 rounded-lg transition-all border-2 border-gray-300 focus:border-2 focus:border-black text-sm">
           {difficultyFromSlice ? `${difficultyFromSlice}` : "SELECT DIFFICULTY"}
         </DropdownMenuTrigger>
         <DropdownMenuContent>
@@ -108,7 +108,7 @@ const DropDown = () => {
       </DropdownMenu>
 
       <DropdownMenu>
-        <DropdownMenuTrigger className="text-black hover:bg-slate-900 hover:text-white shadow-lg px-5 py-3 rounded-lg transition-all border-2 border-black focus:border-2 focus:border-black">
+        <DropdownMenuTrigger className="text-black hover:bg-slate-900 hover:text-white shadow-lg px-5 py-3 rounded-lg transition-all border-2 border-gray-300 focus:border-2 focus:border-black text-sm">
           {typeFromSlice ? `${typeFromSlice}` : "SELECT QUESTION TYPE"}
         </DropdownMenuTrigger>
         <DropdownMenuContent>
