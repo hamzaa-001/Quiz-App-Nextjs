@@ -14,9 +14,15 @@ const Hero = () => {
   const numberOfQuestion = useSelector((state) => state.quiz.numberOfQuestion);
   const [newNumberOfQuestion, setNewNumberOfQuestion] =
     useState(numberOfQuestion);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleClick = () => {
+  const handleClick = async () => {
+    setIsLoading(true);
     dispatch(setNumberOfQuestion(parseInt(newNumberOfQuestion, 10)));
+
+    // Assuming fetching data happens in the QuizPage, we just wait here for simulation
+    await new Promise((resolve) => setTimeout(resolve, 3000)); // Simulate API fetch delay
+
     console.log("🚀 ~ Hero ~ numberOfQuestion:", newNumberOfQuestion);
     router.push("/quiz");
   };
@@ -55,8 +61,12 @@ const Hero = () => {
         </div>
 
         <div className="w-[100%]">
-          <Button className="mt-10 w-full" onClick={handleClick}>
-            Start Quiz
+          <Button
+            className="mt-10 w-full"
+            onClick={handleClick}
+            disabled={isLoading}
+          >
+            {isLoading ? "Start Quiz" : "Start Quiz"}
           </Button>
         </div>
       </div>

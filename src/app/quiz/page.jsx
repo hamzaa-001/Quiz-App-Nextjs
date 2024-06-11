@@ -12,6 +12,7 @@ const QuizPage = () => {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [hasAnswered, setHasAnswered] = useState(false);
   const [questionIndex, setQuestionIndex] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
 
   const quiz = useSelector((state) => state.quiz);
   const { numberOfQuestion, category, level, type, score } = quiz;
@@ -41,6 +42,7 @@ const QuizPage = () => {
       console.log("🚀 ~ shuffledResult ~ shuffledResult:", shuffledResult);
 
       setQuestions([...shuffledResult]);
+      setIsLoading(false);
       dispatch(resetScore());
     };
     fetchQuestions();
@@ -62,7 +64,9 @@ const QuizPage = () => {
 
   return (
     <div className="w-full h-[100vh] bg-slate-950 flex flex-col justify-center items-center gap-10">
-      {questionIndex < questions.length ? (
+      {isLoading ? (
+        <div className="text-4xl text-white">Loading...</div>
+      ) : questionIndex < questions.length ? (
         <>
           <h1 className="text-6xl font-bold text-white">
             Question Number #{questionIndex + 1}
